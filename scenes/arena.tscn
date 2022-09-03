@@ -1,12 +1,37 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/26065.jpg" type="Texture" id=1]
 [ext_resource path="res://scripts/ArenaBackground.gd" type="Script" id=2]
+[ext_resource path="res://tempHand.png" type="Texture" id=3]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="ArenaRoot" type="Node2D"]
 
 [node name="ArenaBackground" type="TextureRect" parent="."]
 margin_right = 4500.0
 margin_bottom = 3500.0
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
+
+[node name="ArenaLogic" type="Node2D" parent="."]
+
+[node name="Player" type="Node2D" parent="."]
+position = Vector2( 200, 200 )
+
+[node name="AnimatedSprite-Hand" type="AnimatedSprite" parent="Player"]
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 1 )
+
+[node name="PlayerUI" type="Control" parent="Player"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Opponent" type="Node2D" parent="."]
+position = Vector2( 809, 282 )
