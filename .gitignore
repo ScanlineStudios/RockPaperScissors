@@ -1,8 +1,8 @@
 
 # Hide our assets
-assets/*
-.assets.back
-assets
+#assets/*
+#.assets.back
+#assets
 
 # Godot-specific ignores
 .import/
